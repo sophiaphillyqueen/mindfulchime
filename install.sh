@@ -25,6 +25,7 @@ rm -rf ~/bin/mindfulchime
 echo "#! $(which perl)"
 echo "use strict;"
 echo "my \$scripdir = \"${dirac}/srcp\";"
+echo "my \$incpdir = \"${dirac}/pllib\";"
 cat "${dirac}/main.plsg"
 ) > ~/bin/mindfulchime
 

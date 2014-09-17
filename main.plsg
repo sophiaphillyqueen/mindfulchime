@@ -10,6 +10,7 @@ if ( $comondsiz < 0.5 )
 }
 $comnom = shift(@comondos);
 
-$ENV{"SCRIP_DIRECTORY"} = $scripdir;
-exec("perl",$scripdir . "/" . $comnom . ".pl", @comondos);
+$ENV{"MIND_SCRIP_DIRECTORY"} = $scripdir;
+$ENV{"MIND_LIB_DIRECTORY"} = $incpdir;
+exec("perl","-I",$incpdir,$scripdir . "/" . $comnom . ".pl", @comondos);
 
