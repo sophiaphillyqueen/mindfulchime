@@ -1,0 +1,10 @@
+
+# First, I initialize the $origidir variable to the source-code
+# directory.
+origidir="$(dirname "${0}")"
+abs_origidir="$(cd "${origidir}" && pwd)"
+
+exec chorebox-configure \
+  --srcdir="${origidir}" \
+"${@}"
+exit
