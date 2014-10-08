@@ -32,7 +32,7 @@
 
 :-:
 :-:install: all
-:perl-in:l:products/mindfulchime::l:$(srcdir)::
+:perl-in:l:products/mindfulchime::l:$(bindir)::
 :->:mkdir -p '$(libexecdir)/mindfulchime/srcp'
 :->:mkdir -p '$(libexecdir)/mindfulchime/pllib'
 :foreach:plmods:plmd:
