@@ -4,7 +4,7 @@
 
 :setvar:perlloc:qry:which perl
 :setvar:prd-l:perl-l:l:products/mindfulchime
-:setvar:prd-i:perl-i:l:$(srcdir)/mindfulchime
+:setvar:prd-i:perl-i:l:$(bindir)/mindfulchime
 :setvar:tprd-l:l: >>
 :apnvar:tprd-l:s:1:
 :apnvar:tprd-l:var:prd-l:
