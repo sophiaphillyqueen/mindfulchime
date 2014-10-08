@@ -1,7 +1,103 @@
 
 :adapt:qry:uname -s
+:argv:argmont:
+
+:setvar:perlloc:qry:which perl
+:setvar:prd-l:perl-l:l:products/mindfulchime
+:setvar:prd-i:perl-i:l:$(srcdir)/mindfulchime
+:setvar:tprd-l:l: >>
+:apnvar:tprd-l:s:1:
+:apnvar:tprd-l:var:prd-l:
+
+:bna:x:chimelib
+:redun:x:plmods
+:bna:x:go
+:redun:x:plcmd
+
+:-:
+:-:all:
+:s:1:
+:echo:var:prd-l:
+:foreach:plmods:plmd:
+	:*: $(srcdir)/pllib/
+	:echo:var:plmd
+	:*:.pm
+:eachend:
+:foreach:plcmd:plcm:
+	:*: $(srcdir)/srcp/
+	:echo:var:plcm
+	:*:.pl
+:eachend:
+:*: Makefile
+
+:-:
+:-:install: all
+:perl-in:l:products/mindfulchime::l:$(srcdir)::
+:->:mkdir -p '$(libexecdir)/mindfulchime/srcp'
+:->:mkdir -p '$(libexecdir)/mindfulchime/pllib'
+:foreach:plmods:plmd:
+	:->:cp '$(srcdir)/pllib/
+	:echo:shl:var:plmd:
+	:*:.pm'  '$(libexecdir)/mindfulchime/pllib/.'
+:eachend:
+:foreach:plcmd:plcm:
+	:->:cp '$(srcdir)/srcp/
+	:echo:shl:var:plcm:
+	:*:.pl'  '$(libexecdir)/mindfulchime/srcp/.'
+:eachend:
+
+:-:
+:-:uninstall:
+:->:rm -rf
+:s:1:
+:echo:var:prd-i:
+:->:rm -rf $(libexecdir)/mindfulchime
+
+:-:
+:-:
+::# Here is the Make instruction for the "mindfulchime" command.
+:echo:var:prd-l:
+:*:: Makefile $(srcdir)/main.seg.pl
+:->:mkdir -p products
+:->:echo "#!
+:s:1:
+:echo:var:perlloc:
+:*:" >
+:s:1:
+:echo:var:prd-l:
+:->:echo "use strict;"
+:echo:var:tprd-l:
+:->:echo 'my $$scripdir = "$(libexecdir)/mindfulchime/srcp";'
+:echo:var:tprd-l:
+:->:echo 'my $$incpdir = "$(libexecdir)/mindfulchime/pllib";'
+:echo:var:tprd-l:
+:->:cat '$(srcdir)/main.seg.pl'
+:echo:var:tprd-l:
+
+:-:
+:-:clean:
+:->:rm -rf products
 
 
+
+
+:-:
+:-:Makefile: Makefile.pre configure
+:->:sh "$(srcdir)/configure"
+:foreach:argmont:argmos:
+	:*: '
+	:echo:shl:var:argmos:
+	:*:'
+:eachend:
+
+:-:
+:-:config:
+:->:sh "$(srcdir)/configure"
+:foreach:argmont:argmos:
+	:*: '
+	:echo:shl:var:argmos:
+	:*:'
+:eachend:
 
 
 

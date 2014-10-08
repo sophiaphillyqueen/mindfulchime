@@ -1,4 +1,4 @@
 :name:mindfulchime:
 :vrsn:0.0.1:
 :year:2014:
-:holder:Sophia Elizabeth Shapira - with possible components by other contributors
+:holder:Sophia Elizabeth Shapira and contributor(s) (see "developers.txt" for details)
